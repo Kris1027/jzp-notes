@@ -43,7 +43,9 @@ const FoldersList = () => {
       <UserCreatedFolders>
         {folders.map((folder) => (
           <NavLink key={folder.id} to={`/notes/${folder.id}`}>
-            <Folder>{folder.name}</Folder>
+            {({ isActive }) => {
+              return <Folder active={isActive}>{folder.name}</Folder>;
+            }}
           </NavLink>
         ))}
       </UserCreatedFolders>
