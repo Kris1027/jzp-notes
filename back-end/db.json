@@ -23,6 +23,10 @@
     {
       "name": "nj",
       "id": 7
+    },
+    {
+      "name": "huu",
+      "id": 8
     }
   ],
   "archive": [],
@@ -116,6 +120,12 @@
       "body": "",
       "folderId": 7,
       "id": 25
+    },
+    {
+      "title": "Nowhua notatka",
+      "body": "Treść notatki",
+      "folderId": 8,
+      "id": 26
     }
   ]
 }
