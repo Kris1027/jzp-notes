@@ -4,11 +4,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { App } from "./App";
 import NotesList from "./components/notes-list/NotesList";
 import { Note } from "./components/note/Note";
+import { createFolder } from "./components/folders-list/FoldersList";
 
 const router = createBrowserRouter([
   {
-    element: <App />,
     path: "/",
+    element: <App />,
+    action: createFolder,
     loader: () => {
       return fetch("http://localhost:3000/folders");
     },
