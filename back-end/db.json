@@ -9,24 +9,8 @@
       "id": 2
     },
     {
+      "name": "nowy folder",
       "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
-    },
-    {
-      "id": 6
-    },
-    {
-      "name": "nj",
-      "id": 7
-    },
-    {
-      "name": "huu",
-      "id": 8
     }
   ],
   "archive": [],
@@ -64,68 +48,8 @@
     {
       "title": "Nowa notatka",
       "body": "Treść notatki",
-      "folderID": 3,
+      "folderId": 3,
       "id": 16
-    },
-    {
-      "title": "Nowa notatka",
-      "body": "Treść notatki",
-      "folderID": 3,
-      "id": 17
-    },
-    {
-      "title": "Nowa notatka",
-      "body": "Treść notatki",
-      "folderID": 3,
-      "id": 18
-    },
-    {
-      "title": "Nowa notatka",
-      "body": "Treść notatki",
-      "folderID": 3,
-      "id": 19
-    },
-    {
-      "title": "Nowa notatka",
-      "body": "Treść notatki",
-      "folderID": 3,
-      "id": 20
-    },
-    {
-      "title": "Nowa notatka",
-      "body": "Treść notatki",
-      "folderID": 3,
-      "id": 21
-    },
-    {
-      "title": "Nowa notatka",
-      "body": "Treść notatki",
-      "folderID": 2,
-      "id": 22
-    },
-    {
-      "title": "Nowa notatka",
-      "body": "Treść notatki",
-      "folderID": 7,
-      "id": 23
-    },
-    {
-      "title": "Nowa notatka",
-      "body": "Treść notatki",
-      "folderID": 7,
-      "id": 24
-    },
-    {
-      "title": "",
-      "body": "",
-      "folderId": 7,
-      "id": 25
-    },
-    {
-      "title": "Nowhua notatka",
-      "body": "Treść notatki",
-      "folderId": 8,
-      "id": 26
     }
   ]
 }

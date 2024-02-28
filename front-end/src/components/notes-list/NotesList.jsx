@@ -1,5 +1,11 @@
 import styles from "./NotesList.module.css";
-import { NavLink, useLoaderData, Outlet, Form } from "react-router-dom";
+import {
+  NavLink,
+  useLoaderData,
+  Outlet,
+  Form,
+  redirect,
+} from "react-router-dom";
 import { Title } from "../title/Title";
 import { AddNewButton } from "../add-new-button/AddNewButton";
 import { TopBar } from "../top-bar/TopBar";
@@ -26,7 +32,11 @@ export function createNote({ params }) {
       body: "Treść notatki",
       folderId: Number(params.folderId),
     }),
-  });
+  })
+    .then((response) => response.json())
+    .then((newNote) => {
+      return redirect(`/notes/${newNote.folderId}/note/${newNote.id}`);
+    });
 }
 
 const NotesList = () => {

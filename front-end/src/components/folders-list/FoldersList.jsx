@@ -1,4 +1,4 @@
-import { Form, NavLink, useLoaderData } from "react-router-dom";
+import { Form, NavLink, redirect, useLoaderData } from "react-router-dom";
 import styles from "./FoldersList.module.css";
 import { Folder } from "../folder/Folder";
 import { Title } from "../title/Title";
@@ -25,7 +25,11 @@ export async function createFolder(args) {
     headers: {
       "Content-Type": "application/json",
     },
-  });
+  })
+    .then((response) => response.json())
+    .then((newFolder) => {
+      return redirect(`/notes/${newFolder.id}`);
+    });
 }
 
 const FoldersList = () => {
