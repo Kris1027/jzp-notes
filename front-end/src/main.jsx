@@ -5,12 +5,14 @@ import { App } from "./App";
 import NotesList, { createNote } from "./components/notes-list/NotesList";
 import { deleteNote, Note, updateNote } from "./components/note/Note";
 import { createFolder } from "./components/folders-list/FoldersList";
+import { NotFound } from "./components/not-found/NotFound";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     action: createFolder,
+    errorElement: <NotFound />,
     shouldRevalidate: ({ formAction }) => {
       if (formAction === "/") {
         return true;
@@ -43,8 +45,16 @@ const router = createBrowserRouter([
                 return true;
               }
             },
-            loader: ({ params }) => {
-              return fetch(`http://localhost:3000/notes/${params.noteId}`);
+            errorElement: <NotFound />,
+            loader: async ({ params }) => {
+              const result = await fetch(
+                `http://localhost:3000/notes/${params.noteId}`
+              );
+              if (result.status === 404) {
+                throw new Error();
+              } else {
+                return result.json();
+              }
             },
             children: [
               {
