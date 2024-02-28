@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { App } from "./App";
 import NotesList, { createNote } from "./components/notes-list/NotesList";
-import { Note, updateNote } from "./components/note/Note";
+import { deleteNote, Note, updateNote } from "./components/note/Note";
 import { createFolder } from "./components/folders-list/FoldersList";
 
 const router = createBrowserRouter([
@@ -46,6 +46,12 @@ const router = createBrowserRouter([
             loader: ({ params }) => {
               return fetch(`http://localhost:3000/notes/${params.noteId}`);
             },
+            children: [
+              {
+                path: "delete",
+                action: deleteNote,
+              },
+            ],
           },
         ],
       },
