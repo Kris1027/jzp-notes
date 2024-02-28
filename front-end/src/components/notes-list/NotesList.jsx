@@ -1,5 +1,5 @@
 import styles from "./NotesList.module.css";
-import { NavLink, useLoaderData, Outlet } from "react-router-dom";
+import { NavLink, useLoaderData, Outlet, Form } from "react-router-dom";
 import { Title } from "../title/Title";
 import { AddNewButton } from "../add-new-button/AddNewButton";
 import { TopBar } from "../top-bar/TopBar";
@@ -15,6 +15,20 @@ const Notes = ({ children }) => (
   </div>
 );
 
+export function createNote({ params }) {
+  return fetch("http://localhost:3000/notes", {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({
+      title: "Nowa notatka",
+      body: "Treść notatki",
+      folderId: Number(params.folderId),
+    }),
+  });
+}
+
 const NotesList = () => {
   const notes = useLoaderData();
 
@@ -23,8 +37,9 @@ const NotesList = () => {
       <Notes>
         <TopBar>
           <Title>Notatki</Title>
-
-          <AddNewButton>+</AddNewButton>
+          <Form method="POST">
+            <AddNewButton>+</AddNewButton>
+          </Form>
         </TopBar>
 
         {notes.map((note) => (
